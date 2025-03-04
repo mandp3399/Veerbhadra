@@ -1,0 +1,38 @@
+/actuator/conditions
+Shows the conditions that were evaluated on configuration and auto-configuration classes and the reasons why they did or did not match.
+/actuator/configprops
+Displays a collated list of all configuration properties.
+/actuator/env
+contains internal paths, ports, version numbers etc.
+/actuator/loggers
+configuration of loggers in the application
+/actuator/heapdump 
+/actuator/threaddump
+/actuator/metrics
+internal metrics
+/actuator/scheduledtasks
+/actuator/mappings
+/actuator/beans
+/actuator/caches
+/actuator/health
+/actuator/heapdump
+/actuator/prometheus
+/actuator/metrics
+/actuator/info
+/actuator/health
+/actuator/logfile
+/actuator/loggers
+/actuator/threaddump
+/actuator/mappings
+/actuator/conditions
+/actuator/httptrace
+/actuator/auditevents
+/actuator/env
+/actuator/beans
+/actuator/caches
+/actuator/scheduledtasks
+/actuator/sessions
+/actuator/shutdown
+/actuator/threaddump
+/actuator/trace
+	
