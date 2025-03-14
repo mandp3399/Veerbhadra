@@ -1,10 +1,10 @@
-sudo add-apt-repository ppa:linuxuprising/java
 sudo apt update
-sudo apt install oracle-java17-installer -y
+sudo apt install default-jdk
+java -version
+openjdk version "11.0.11" 2021-04-20
+OpenJDK Runtime Environment (build 11.0.11+9-Ubuntu-0ubuntu2)
+OpenJDK 64-Bit Server VM (build 11.0.11+9-Ubuntu-0ubuntu2, mixed mode)
+echo "export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))" | sudo tee -a /etc/profile
+source /etc/profile
 
-  sudo update-alternatives --config java
-export JAVA_HOME=$(dirname $(dirname $(readlink -f $(which java))))
-export PATH=$JAVA_HOME/bin:$PATH
-echo "export JAVA_HOME=$JAVA_HOME" >> ~/.bashrc
-echo "export PATH=\$JAVA_HOME/bin:\$PATH" >> ~/.bashrc
-source ~/.bashrc
+
