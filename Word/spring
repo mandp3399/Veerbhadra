@@ -185,3 +185,56 @@
 /api/usermgmt/actuator/httptrace
 /api/usermgmt/actuator/jolokia
 /api/usermgmt/actuator/prometheus
+Vulnerability: JWT Token Exposure via OPTIONS Method
+Description:
+The HTTP OPTIONS method is often used for preflight requests in CORS (Cross-Origin Resource Sharing) or for retrieving allowed methods on a given endpoint. However, if a web application mistakenly includes JWT tokens in URL query parameters, an OPTIONS request could expose these tokens in logs, caches, or intermediary systems. Attackers may exploit this vulnerability to intercept and use the JWT for unauthorized access.
+
+Impact:
+Sensitive JWT tokens could be logged in browser history, server logs, and proxy logs.
+
+Attackers who can intercept or view OPTIONS request responses may gain unauthorized access to protected resources.
+
+Increased risk of token theft via MITM (Man-in-the-Middle) attacks if URLs are not properly protected.
+
+Remediation:
+✅ Avoid Passing JWT Tokens in URL Query Parameters:
+
+Always send JWT tokens in Authorization headers instead of URLs. Example:
+
+http
+Copy
+Edit
+Authorization: Bearer <jwt_token>
+✅ Restrict OPTIONS Method If Not Needed:
+
+Disable or limit OPTIONS requests on sensitive endpoints by configuring your web server or API gateway.
+
+✅ Secure CORS Configuration:
+
+If OPTIONS requests are required for CORS, ensure only trusted origins are allowed:
+
+java
+Copy
+Edit
+@Bean
+public WebMvcConfigurer corsConfigurer() {
+    return new WebMvcConfigurer() {
+        @Override
+        public void addCorsMappings(CorsRegistry registry) {
+            registry.addMapping("/api/**")
+                    .allowedOrigins("https://trusted-origin.com")
+                    .allowedMethods("GET", "POST", "PUT", "DELETE");
+        }
+    };
+}
+✅ Implement Token Expiry & Rotation:
+
+Use short-lived JWTs and refresh tokens to minimize exposure risk.
+
+✅ Enable HTTPS Everywhere:
+
+Ensure all JWT communications are encrypted using TLS (HTTPS) to prevent eavesdropping.
+
+✅ Monitor and Audit Logs:
+
+Regularly check logs for token exposure and enforce security policies to redact sensitive information.
