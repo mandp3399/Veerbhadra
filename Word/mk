@@ -1,0 +1,26 @@
+Vulnerability: DELETE Method Enabled
+Description
+The HTTP DELETE method allows clients to remove resources from a server. When improperly configured or left unrestricted, it can enable unauthorized users to delete critical data, leading to data loss, service disruption, or unauthorized modifications. Attackers can exploit this vulnerability to erase files, manipulate databases, or disrupt application functionality.
+
+Impact
+Data Loss: Unauthorized users may delete important files, records, or application resources.
+
+Service Disruption: Deleting essential resources can render a web application unusable.
+
+Security Risks: Attackers may delete logs, security configurations, or access controls to cover their tracks.
+
+Compliance Violations: Exposing the DELETE method without proper controls may violate data protection regulations (e.g., GDPR, HIPAA).
+
+Remediation
+Restrict DELETE Method: Disable the DELETE method unless explicitly required.
+
+Access Control: Use authentication and authorization mechanisms (e.g., API keys, OAuth, role-based access control) to limit DELETE requests to authorized users.
+
+Whitelist Specific Endpoints: If DELETE is required, restrict it to specific resources rather than exposing it globally.
+
+Implement Logging & Monitoring: Track DELETE requests to detect potential abuse and unauthorized access.
+
+Use Web Application Firewall (WAF): Configure WAF rules to block unauthorized DELETE requests.
+
+Validate Client Requests: Implement strict validation to ensure DELETE requests originate from trusted sources.
+
