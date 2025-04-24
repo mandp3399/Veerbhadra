@@ -1,0 +1,70 @@
+
+# Salesforce Sensitive Endpoints Wordlist (Extended)
+
+# SOAP / WSDL
+/services/Soap/u/{version}
+/services/Soap/c/{version}
+/services/Soap/m/{version}
+/services/Soap/s/{version}
+/wsdl.jsp
+
+# REST API
+/services/data/v{version}/
+/services/data/v{version}/sobjects/
+/services/data/v{version}/query?q=SELECT+...
+/services/data/v{version}/tooling/
+/services/data/v{version}/limits/
+/services/data/v{version}/chatter/
+/services/data/v{version}/analytics/
+/services/data/v{version}/composite/
+/services/data/v{version}/search/?q=FIND+{query}
+/services/data/v{version}/queryAll?q=SELECT+...
+
+# Tooling & Metadata
+/services/data/v{version}/tooling/query
+/services/data/v{version}/tooling/sobjects/
+/services/data/v{version}/tooling/apexClass/
+/services/data/v{version}/tooling/apexLog/
+/services/data/v{version}/tooling/apexTrigger/
+/services/data/v{version}/tooling/traceFlag
+/services/Soap/tooling/{version}
+
+# Identity & Session
+/id/{orgId}/{userId}
+/services/oauth2/userinfo
+/services/oauth2/token
+/services/oauth2/revoke
+/services/oauth2/introspect
+
+# Login and Admin
+/login.jsp
+/setup/secur/RemoteAccessPage.apexp
+/setup/secur/ViewUser.apexp
+/setup/ui/Setup
+/setup/ui/RecordTypeFields.apexp
+/ui/setup/Setup
+/ui/setup/forceDashboard.apexp
+
+# Apex and Custom Endpoints
+/apex/{custom_page}
+/services/apexrest/{custom_rest_endpoint}
+/services/data/v{version}/functions/
+/services/data/v{version}/process/
+/_ui/common/apex/debug/ApexCSIPage
+/_ui/core/email/author/EmailAuthor
+/_ui/common/request/RequestEditPage
+/servlet/servlet.Integration
+
+# Bulk API
+/services/async/{version}/job
+/services/data/v{version}/jobs/ingest
+/services/data/v{version}/jobs/query
+
+# Misc / Other Admin Tools
+/console
+/lightning
+/lightning/setup/SetupOneHome
+/services/data/v{version}/wave/
+/services/data/v{version}/sobjects/EventLogFile/
+/_ui/common/data/ImportWizardFrame
+/ui/setup/SetupApexClass.apexp

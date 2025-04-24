@@ -1,0 +1,46 @@
+
+# Salesforce Sensitive Endpoints Wordlist
+
+# SOAP / WSDL
+/services/Soap/u/{version}
+/services/Soap/c/{version}
+/services/Soap/m/{version}
+/services/Soap/s/{version}
+/wsdl.jsp
+
+# REST API
+/services/data/v{version}/
+/services/data/v{version}/sobjects/
+/services/data/v{version}/query?q=SELECT+...
+/services/data/v{version}/tooling/
+/services/data/v{version}/limits/
+/services/data/v{version}/chatter/
+/services/data/v{version}/analytics/
+
+# Tooling & Metadata
+/services/data/v{version}/tooling/query
+/services/data/v{version}/tooling/sobjects/
+/services/Soap/tooling/{version}
+
+# Identity & Session
+/id/{orgId}/{userId}
+/services/oauth2/userinfo
+/services/oauth2/token
+/services/oauth2/revoke
+
+# Login and Admin
+/login.jsp
+/setup/secur/RemoteAccessPage.apexp
+/setup/secur/ViewUser.apexp
+
+# Apex and Custom Endpoints
+/apex/{custom_page}
+/services/apexrest/{custom_rest_endpoint}
+/services/data/v{version}/functions/
+/services/data/v{version}/process/
+/_ui/common/apex/debug/ApexCSIPage
+
+# Bulk API
+/services/async/{version}/job
+/services/data/v{version}/jobs/ingest
+/services/data/v{version}/jobs/query
